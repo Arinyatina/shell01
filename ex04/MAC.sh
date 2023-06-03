@@ -1,2 +1,2 @@
 #!/bin/sh
-ip a s | grep ether | cut -c16- | rev | cut -c23- | rev
+ip -o link | awk '$2 != "lo:" {print $2, $(NF-2)}'
